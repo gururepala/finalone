@@ -5,8 +5,8 @@ pipeline{
         stage("Cloning the code from GITHUB URL") {
             steps {
                 println "Using the URL copied from GIT HUB repository we are cloning the code"
-                sh """
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[ url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git']]])
+                sh """
                 ls -al
                 """
             }        
