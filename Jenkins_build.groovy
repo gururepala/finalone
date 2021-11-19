@@ -25,10 +25,9 @@ pipeline{
             steps {
                 println "Builded code will be uploaded to S3 bucket"
                 sh """
-                aws s3 cp target/hello-$BUILD_NUMBER.war s3://mydeployedprojects/
+                aws s3 cp target/hello-${BUILD_NUMBER}.war s3://mydeployedprojects/${BUILD_NUMBER}/
                 """
-            }
-        }
+            }   
 
     }
 }
