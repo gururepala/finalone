@@ -24,9 +24,7 @@ pipeline{
         stage("Builded code will be copied to artifacts") {
             steps {
                 println "Builded code will be uploaded to S3 bucket"
-                sh """
-                aws s3 cp target/hello-${BUILD_NUMBER}.war s3://mydeployedprojects/${BUILD_NUMBER}/
-                """
+                sh "aws s3 cp target/hello-${BUILD_NUMBER}.war s3://mydeployedprojects/${BUILD_NUMBER}/"
             }   
         }
 
