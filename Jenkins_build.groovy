@@ -17,7 +17,7 @@ pipeline{
                 sh """
                 mvn clean package
                 echo "$BUILD_NUMBER"
-                ls -al /target/
+                ls -al target/
                 """
             }
         }
