@@ -28,6 +28,7 @@ pipeline{
                 aws s3 cp target/hello-${BUILD_NUMBER}.war s3://mydeployedprojects/${BUILD_NUMBER}/
                 """
             }   
+        }
 
     }
 }
