@@ -11,9 +11,7 @@ pipeline{
                 //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, userRemoteConfigs: [[ url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git']]])
                 git branch: "${BRANCH_NAME}",
                 url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git'
-                sh """
-                ls -al
-                """
+                sh "ls -al"
             }        
         }
         stage("Building the code") {
