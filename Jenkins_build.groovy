@@ -9,7 +9,8 @@ pipeline{
             steps {
                 println "Using the URL copied from GIT HUB repository we are cloning the code"
                 //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, userRemoteConfigs: [[ url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git']]])
-                git branch: "${BRANCH_NAME}"
+                git branch: "${BRANCH_NAME}",
+                url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git'
                 sh """
                 ls -al
                 """
