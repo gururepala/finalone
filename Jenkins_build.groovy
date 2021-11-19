@@ -1,16 +1,16 @@
 //Descriptive pipeline
 pipeline{
     agent any
-    environment {
-        BRANCH = "${env.BRANCH_NAME}"
-    }
+    //environment {
+      //  BRANCH = "${env.BRANCH_NAME}"
+    //}
     stages{
         stage("Cloning the code from GITHUB URL") {
             steps {
                 println "Using the URL copied from GIT HUB repository we are cloning the code"
-                //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, userRemoteConfigs: [[ url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git']]])
-                git branch: "${BRANCH_NAME}",
-                url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, userRemoteConfigs: [[ url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git']]])
+                //git branch: "${BRANCH_NAME}",
+                //url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git'
                 sh """
                 ls -al
                 """
