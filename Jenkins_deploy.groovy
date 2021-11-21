@@ -16,7 +16,7 @@ pipeline{
                     sh "aws s3 cp s3://mydeployedprojects/${BRANCH_NAME}/${BUILD_NUMBER}/hello-${BUILD_NUMBER}.war ."
             }
         }
-        stage("copy file to tomcat") {
+        stage("copy file to tomcat server") {
             steps {
                 println "Deploying build code to tomcat server"
                 sh "ssh -i /tmp/DevOpsNV.pem ec2-user@${SERVERIP}"
