@@ -8,19 +8,10 @@ pipeline{
         stage("Cloning the code from GITHUB URL") {
             steps {
                 println "Using the URL copied from GIT HUB repository we are cloning the code"
-<<<<<<< HEAD
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, userRemoteConfigs: [[ url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git']]])
-                //git branch: "${BRANCH_NAME}",
+               // git branch: "${BRANCH_NAME}",
                 //url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git'
-                sh """
-                ls -al
-                """
-=======
-                //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, userRemoteConfigs: [[ url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git']]])
-                git branch: "${BRANCH_NAME}",
-                url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git'
                 sh "ls -al"
->>>>>>> fe22c0b4945a5f825d7182f83f26e74c1da426cf
             }        
         }
         stage("Building the code") {
