@@ -2,7 +2,7 @@
 pipeline{
     agent any 
     parameters {
-    string(name: 'BRANCH_NAME', defaultValue: '${BARNCH}    ', description: 'From which branch artifacts are downloaded?')
+    string(name: 'BRANCH_NAME', defaultValue: '${BARNCH}', description: 'From which branch artifacts are to be downloaded?')
     string(name: 'BUILD_NUMBER', defaultValue: '', description: 'From which buildnumber artifacts are downloaded?')
     string(name: 'SERVERIP', defaultValue: '', description: 'To which server builded code shall be deployed?')
   }
