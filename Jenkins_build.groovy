@@ -1,16 +1,16 @@
 //Descriptive pipeline
 pipeline{
     agent any
-    //environment {
-      //  BRANCH = "${env.BRANCH_NAME}"
-    //}
+    environment {
+        BRANCH = "${env.BRANCH_NAME}"
+    }
     stages{
         stage("Cloning the code from GITHUB URL") {
             steps {
                 println "Using the URL copied from GIT HUB repository we are cloning the code"
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, userRemoteConfigs: [[ url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git']]])
-               // git branch: "${BRANCH_NAME}",
-                //url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git'
+                //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, userRemoteConfigs: [[ url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git']]])
+                git branch: "${BRANCH_NAME}",
+                url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git'
                 sh "ls -al"
             }        
         }
@@ -27,7 +27,7 @@ pipeline{
         stage("Builded code will be copied to artifacts") {
             steps {
                 println "Builded code will be uploaded to S3 bucket"
-                sh "aws s3 cp target/hello-${BUILD_NUMBER}.war s3://mydeployedprojects/${BUILD_NUMBER}/"
+                sh "aws s3 cp target/hello-${BUILD_NUMBER}.war s3://mydeployedprojects/${BRANCH}/${BUILD_NUMBER}/"
             }   
         }
 
