@@ -19,8 +19,7 @@ pipeline{
         stage("copy file to tomcat server") {
             steps {
                 println "Deploying build code to tomcat server"
-                sh "ssh -i /tmp/DevOpsNV.pem ec2-user@${SERVERIP} \"
-                sh "systemctl status tomcat"
+                sh "ssh -i /tmp/DevOpsNV.pem ec2-user@${SERVERIP} \"systemctl status tomcat\""
             }
         }
     }
