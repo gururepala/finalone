@@ -5,7 +5,7 @@ pipeline{
         BRANCH = "${env.BRANCH_NAME}"
     }
     stages{
-        stage("Cloning the code from GITHUB URL") {
+        stage("Cloning the code from GITHUB URL to jenkins server") {
             steps {
                 println "Using the URL copied from GIT HUB repository we are cloning the code"
                 //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, userRemoteConfigs: [[ url: 'https://github.com/gururepala/boxfuse-sample-java-war-hello.git']]])
