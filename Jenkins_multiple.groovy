@@ -2,19 +2,21 @@
 pipeline {
     agent any 
      parameters {
-    string(name: 'SERVERIPS', defaultValue: '', description: 'Enter the serverip's in which code has to be build?')
+    string(name: 'SERVERIPS', defaultValue: '', description: 'Enter the serverips in which code has to be build?')
   }
     stages{
         stage("multiple servers") {
             step{
-                    sh """
+                    sh '''
                     IFS=',' read -ra AADR <<< "${SERVERIPS}"
-                    for ip in "${ADDR[@]}";
+                    for ip in \"${ADDR[@]}\";
                     do 
                     echo $ip
+                    echo "here we copy files"   
+                    ssh -o stricthostkeychecking=no -i /tmp/DevOpsNV.pem ec2-user@$ip "hostname"
                     #process "$ip"
                     done
-                    """
+                    ''' 
             }
         }
     }
