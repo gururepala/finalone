@@ -6,11 +6,11 @@ pipeline {
   }
     stages{
         stage("multiple servers") {
-            step{
+            steps{
                     sh '''
                     IFS=',' read -ra AADR <<< "${SERVERIPS}"
                     for ip in \"${ADDR[@]}\";
-                    do 
+                    do
                     echo $ip
                     echo "here we copy files"   
                     ssh -o stricthostkeychecking=no -i /tmp/DevOpsNV.pem ec2-user@$ip "hostname"
