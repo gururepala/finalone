@@ -16,7 +16,8 @@ pipeline {
                         ssh -o stricthostkeychecking=no -i /tmp/DevOpsNV.pem ec2-user@$ip "hostname"
                         #process "$ip"
                         done
-                    '''
+                           '''
             }
         }
+    }
 }
