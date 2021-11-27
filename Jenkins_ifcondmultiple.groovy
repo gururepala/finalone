@@ -14,9 +14,9 @@
 
                 script {
                     if (env.ENVIRONMENT_NAME == 'GURU') {
-                        SERVERS = ["172.31.93.44","172.31.85.14"]
+                        SERVERS = ["172.31.80.160","172.31.86.77"]
                     } else if (env.ENVIRONMENT_NAME == 'PRASAD') {
-                        SERVERS = ["1.1.2.1","1.1.2.2","1.1.2.3"]
+                        SERVERS = ["172.31.80.160"]
                     }
                     println SERVERS.size()
                     for(item in SERVERS){
